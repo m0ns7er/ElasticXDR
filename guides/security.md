@@ -217,10 +217,10 @@ sudo systemctl restart kibana
 sudo systemctl status kibana
 ```
 
-Now restart Elasticsearch & check status.
+Now stop Elasticsearch & check status.
 
 ```
-sudo systemctl restart elasticsearch
+sudo systemctl stop elasticsearch
 ```
 
 ```
