@@ -120,7 +120,14 @@ Now run this command in your Fleet Server Terminal.
 sudo nano server-tar-install.sh
 ```
 
-Now copy this config below and paste into that note editor and save it for server-tar-install.sh
+Remember:  Change these settings for you Username & Password then save it for server-tar-install.sh
+
+```
+username='<ssh username>'
+certIP='<IP to cert server>'
+```
+
+Now copy this config below to a notepad editor and make changes to it then save it.
 
 ```
 #!/bin/bash
