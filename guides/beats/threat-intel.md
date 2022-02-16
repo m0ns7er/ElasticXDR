@@ -22,6 +22,12 @@ Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://19
 ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
 ```
 
+Don't forget to add: HTTPS to your config like so!
+
+```
+["https://192.168.0.25:9200"]
+```
+
 #### Example Configs Below Before:
 
 ```
