@@ -292,6 +292,50 @@ Look for this section in the script and replace my Demo API Key with your API.
     var.api_token: "<RF_TOKEN>"
 ```
 
+Filebeat.yml Settings Below!
+
+Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://192.168.0.25:9200)**"]** and make sure **https** is un-commented and you put in your **elastic** password.
+
+```
+ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
+```
+
+#### Example Configs Below Before:
+
+```
+---------------------------- Elasticsearch Output ----------------------------
+output.elasticsearch:
+  #Array of hosts to connect to.
+  hosts: ["https://192.168.0.25:9200"]
+
+  #Protocol - either `http` (default) or `https`.
+  protocol: "https"
+
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  username: "elastic"
+  password: "This is your elastic password"
+
+```
+
+#### After Configs Below:
+
+```
+---------------------------- Elasticsearch Output ----------------------------
+output.elasticsearch:
+  #Array of hosts to connect to.
+  hosts: ["https://192.168.0.25:9200"]
+  ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
+  #Protocol - either `http` (default) or `https`.
+  protocol: "https"
+
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  username: "elastic"
+  password: "This is your elastic password"
+
+```
+
 Once that is done restart filebeat.
 
 ```
