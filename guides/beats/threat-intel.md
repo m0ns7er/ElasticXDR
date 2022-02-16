@@ -28,6 +28,8 @@ Don't forget to add: HTTPS to your config like so!
 ["https://192.168.0.25:9200"]
 ```
 
+As well put in your Elastic Password as shown like sample config below.
+
 #### Example Configs Below Before:
 
 ```
@@ -60,7 +62,7 @@ output.elasticsearch:
   # Authentication credentials - either API key or username/password.
   #api_key: "id:api_key"
   username: "elastic"
-  password: "This is your elastic password"
+  password: "MyPassword"
 
 ```
 
