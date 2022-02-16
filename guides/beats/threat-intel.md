@@ -4,14 +4,6 @@ description: Configure Threat Intel
 
 # Threat Intel
 
-Before you setup Threat Intel, you will need an API key from OTX Alienvault.
-
-Create your account then go to settings then copy your OTX API Key then add that key to this config below.
-
-{% embed url="https://otx.alienvault.com" %}
-Alienvault API
-{% endembed %}
-
 Now navigate to your filebeat modules.d location.
 
 ```
@@ -24,6 +16,68 @@ Next, enable the Filebeat module threatintel.
 sudo filebeat modules enable threatintel
 ```
 
+Filebeat.yml Settings Below!
+
+Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://192.168.0.25:9200)**"]** and make sure **https** is un-commented and you put in your **elastic** password.
+
+```
+ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
+```
+
+Edit Filebeat
+
+```
+sudo nano filebeat.yml
+```
+
+#### Example Configs Below Before:
+
+```
+---------------------------- Elasticsearch Output ----------------------------
+output.elasticsearch:
+  #Array of hosts to connect to.
+  hosts: ["https://192.168.0.25:9200"]
+
+  #Protocol - either `http` (default) or `https`.
+  protocol: "https"
+
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  username: "elastic"
+  password: "This is your elastic password"
+
+```
+
+#### After Configs Below:
+
+```
+---------------------------- Elasticsearch Output ----------------------------
+output.elasticsearch:
+  #Array of hosts to connect to.
+  hosts: ["https://192.168.0.25:9200"]
+  ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
+  #Protocol - either `http` (default) or `https`.
+  protocol: "https"
+
+  # Authentication credentials - either API key or username/password.
+  #api_key: "id:api_key"
+  username: "elastic"
+  password: "This is your elastic password"
+
+```
+
+Before you setup Threat Intel, you will need an API key from OTX Alienvault.
+
+Create your account then go to settings then copy your OTX API Key then add that key to this config below.
+
+{% hint style="info" %}
+**"The authentication token used to contact the OTX API, can be found on the OTX UI".**
+{% endhint %}
+
+{% embed url="https://otx.alienvault.com" %}
+Alienvault API
+{% endembed %}
+
 Now edit your threatintel.yml file and erase contents with Ctrl + k then replace it with this config.
 
 ```
@@ -32,10 +86,6 @@ sudo nano threatintel.yml
 
 {% hint style="info" %}
 Look for this section in the script and replace my Demo API Key with your API.
-{% endhint %}
-
-{% hint style="info" %}
-**"The authentication token used to contact the OTX API, can be found on the OTX UI".**
 {% endhint %}
 
 ```
@@ -290,56 +340,6 @@ Look for this section in the script and replace my Demo API Key with your API.
 
     # Set your API Token.
     var.api_token: "<RF_TOKEN>"
-```
-
-Filebeat.yml Settings Below!
-
-Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://192.168.0.25:9200)**"]** and make sure **https** is un-commented and you put in your **elastic** password.
-
-```
-ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
-```
-
-Edit Filebeat
-
-```
-sudo nano filebeat.yml
-```
-
-#### Example Configs Below Before:
-
-```
----------------------------- Elasticsearch Output ----------------------------
-output.elasticsearch:
-  #Array of hosts to connect to.
-  hosts: ["https://192.168.0.25:9200"]
-
-  #Protocol - either `http` (default) or `https`.
-  protocol: "https"
-
-  # Authentication credentials - either API key or username/password.
-  #api_key: "id:api_key"
-  username: "elastic"
-  password: "This is your elastic password"
-
-```
-
-#### After Configs Below:
-
-```
----------------------------- Elasticsearch Output ----------------------------
-output.elasticsearch:
-  #Array of hosts to connect to.
-  hosts: ["https://192.168.0.25:9200"]
-  ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
-  #Protocol - either `http` (default) or `https`.
-  protocol: "https"
-
-  # Authentication credentials - either API key or username/password.
-  #api_key: "id:api_key"
-  username: "elastic"
-  password: "This is your elastic password"
-
 ```
 
 Once that is done restart filebeat.
