@@ -16,7 +16,7 @@ Edit Filebeat
 sudo nano filebeat.yml
 ```
 
-Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://192.168.0.25:9200)**"]** and make sure **https** is un-commented and you put in your **elastic** password.
+Add these settings under **hosts: \["192.168.0.25:9200"]** and make sure **https** is un-commented and you put in your **elastic** password.
 
 ```
 ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
