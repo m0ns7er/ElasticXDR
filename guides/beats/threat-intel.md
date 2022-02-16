@@ -130,6 +130,8 @@ sudo nano threatintel.yml
 Look for this section in the script and replace my Demo API Key with your API.
 {% endhint %}
 
+Look for: # The authentication token used to contact the OTX API, can be found on the OTX UI.
+
 ```
 - module: threatintel
   abuseurl:
