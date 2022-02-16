@@ -66,6 +66,36 @@ output.elasticsearch:
 
 ```
 
+Add this setting to the Kibana host settings as well.
+
+```
+["https://192.168.0.25:9200"]
+```
+
+Sample output:
+
+```
+setup.kibana:
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  host: "localhost601"
+```
+
+After output:
+
+```
+setup.kibana:
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  host: "https://172.16.100.6:5601"
+```
+
 Now navigate to your filebeat modules.d location.
 
 ```
