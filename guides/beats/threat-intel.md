@@ -39,12 +39,12 @@ output.elasticsearch:
   hosts: ["https://192.168.0.25:9200"]
 
   #Protocol - either `http` (default) or `https`.
-  protocol: "https"
+  #protocol: "https"
 
   # Authentication credentials - either API key or username/password.
   #api_key: "id:api_key"
-  username: "elastic"
-  password: "This is your elastic password"
+  #username: "elastic"
+  #password: "This is your elastic password"
 
 ```
 
