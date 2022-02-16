@@ -17,8 +17,7 @@
   * [Linux Agent](guides/server/linux-agent.md)
   * [Windows Agent](guides/server/windows-agent.md)
 * [🎵 Beats](guides/beats/README.md)
-  * [Threat Intel](guides/beats/threat-intel.md)
-  * [Encryption](guides/beats/encryption.md)
+  * [Filebeat & Encryption](guides/beats/filebeat-and-encryption.md)
 
 ## Elastic Integrations
 
