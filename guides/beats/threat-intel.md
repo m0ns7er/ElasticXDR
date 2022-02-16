@@ -6,16 +6,22 @@ description: Configure Threat Intel
 
 Before you setup Threat Intel, you will need an API key from OTX Alienvault.
 
+Create your account then go to settings then copy your OTX API Key then add that key to this config below.
+
 {% embed url="https://otx.alienvault.com" %}
 Alienvault API
 {% endembed %}
-
-Create your account then go to settings then copy your OTX API Key then add that key to this config below.
 
 Now navigate to your filebeat modules.d location.
 
 ```
 cd /etc/filebeat/modules.d
+```
+
+Next, enable the Filebeat module threatintel.
+
+```
+sudo filebeat modules enable threatintel
 ```
 
 Now edit your threatintel.yml file and erase contents with Ctrl + k then replace it with this config.
