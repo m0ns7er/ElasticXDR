@@ -300,6 +300,12 @@ Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://19
 ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
 ```
 
+Edit Filebeat
+
+```
+sudo nano filebeat.yml
+```
+
 #### Example Configs Below Before:
 
 ```
