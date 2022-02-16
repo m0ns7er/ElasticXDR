@@ -4,30 +4,22 @@ description: Configure Threat Intel
 
 # Threat Intel
 
-Now navigate to your filebeat modules.d location.
+Now cd into your Filebeat folder.
 
 ```
-cd /etc/filebeat/modules.d
-```
-
-Next, enable the Filebeat module threatintel.
-
-```
-sudo filebeat modules enable threatintel
-```
-
-Filebeat.yml Settings Below!
-
-Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://192.168.0.25:9200)**"]** and make sure **https** is un-commented and you put in your **elastic** password.
-
-```
-ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
+cd /etc/filebeat/
 ```
 
 Edit Filebeat
 
 ```
 sudo nano filebeat.yml
+```
+
+Add this settings under **hosts: \["**[**https://192.168.0.25:9200**](https://192.168.0.25:9200)**"]** and make sure **https** is un-commented and you put in your **elastic** password.
+
+```
+ssl.certificate_authorities: ["/etc/elasticsearch/certs/elasticsearch.crt"]
 ```
 
 #### Example Configs Below Before:
@@ -64,6 +56,18 @@ output.elasticsearch:
   username: "elastic"
   password: "This is your elastic password"
 
+```
+
+Now navigate to your filebeat modules.d location.
+
+```
+cd /etc/filebeat/modules.d
+```
+
+Next, enable the Filebeat module threatintel.
+
+```
+sudo filebeat modules enable threatintel
 ```
 
 Before you setup Threat Intel, you will need an API key from OTX Alienvault.
